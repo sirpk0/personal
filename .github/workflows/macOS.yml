@@ -12,8 +12,8 @@ jobs:
 
     env:
       # Change These If You Are Forking The Repo
-      GitHubMail: "rokibhasansagar2014@outlook.com"
-      GitHubName: "rokibhasansagar"
+      GitHubMail: "manofuranium@gmail.com"
+      GitHubName: "ElytrA8"
 
     steps:
     - name: Set Git Configs & Secrets
@@ -38,8 +38,8 @@ jobs:
         # This password you will use when authorizing via SSH
         SSH_PASSWORD: ${{ secrets.SSH_PASSWORD }}
         # Send connection info to Telegram (optional)
-        #TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-        #TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+        TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
     #- name: Start SSH via tmate
     #  uses: P3TERX/ssh2actions@main
     #  # Send connection info to Telegram (optional)
