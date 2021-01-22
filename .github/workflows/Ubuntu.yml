@@ -23,6 +23,12 @@ jobs:
         git config --global color.ui true
         git config --global credential.helper store
         echo "https://${GitHubName}:${{ secrets.GH_TOKEN }}@github.com" > ~/.git-credentials
+
+     - name: Setup SSH Keys and known_hosts 
+       uses: webfactory/ssh-agent@v0.4.1
+       with:
+           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
     # Either use ngrok method or tmate method
     - name: Start SSH via ngrok
       continue-on-error: true
@@ -40,12 +46,7 @@ jobs:
         # Send connection info to Telegram (optional)
         TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
         TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-    #- name: Start SSH via tmate
-    #  uses: P3TERX/ssh2actions@main
-    #  # Send connection info to Telegram (optional)
-    #  env:
-    #    TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-    #    TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+
     - name: Self Looping
       run: |
         git clone https://${GitHubName}:${{ secrets.GH_TOKEN }}@github.com/${GITHUB_REPOSITORY} loop
