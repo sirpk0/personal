@@ -12,7 +12,7 @@ jobs:
 
     env:
       # Change These If You Are Forking The Repo
-      GitHubMail: "manofuranium@gmail.com"
+      GitHubMail: "sirpk@protonmail.com"
       GitHubName: "sirpk0"
 
     steps:
